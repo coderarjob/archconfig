@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/arjob/Work/x86-assembly/quick/nasm_structs/inside_routine'
+let g:netrw_dirhist_2='/home/arjob/Work/x86-assembly/projects/bios/megha/src/modules/kernel'
+let g:netrw_dirhist_3='/home/arjob/Work/x86-assembly/projects/bios/megha/src/modules/despatcher'
+let g:netrw_dirhist_4='/home/coder/Downloads/ldd2-samples-1.0.1/scull'
+let g:netrw_dirhist_5='/home/arjob/Work/x86-assembly/quick/nasm_structs/basics'
