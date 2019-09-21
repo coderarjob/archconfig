@@ -3,13 +3,18 @@
 " TODO: javacomplete not working.
 
 set nocompatible
+" filetype plugin on
+
+" setup encoding
+set encoding=UTF-8
 
 " enables numbers and relative numbering
 set number	
-set relativenumber 
+" set relativenumber 
 
 " 1 Tab key inserts 4 spaces
 set tabstop=4 
+autocmd FileType asm set tabstop=4
 
 " Number of spaces that autoindent will use
 set shiftwidth=4
@@ -17,10 +22,13 @@ set shiftwidth=4
 " Wrap text settings
 set textwidth=79
 set formatoptions+=t " autowraps using textwidth
-set formatoptions-=l " wraps long lines when insert mode begins them.
+" set formatoptions-=l " wraps long lines when insert mode begins them.
 
 " 80 charecters
 set colorcolumn=80
+
+" ignore case when searching
+set ignorecase
 
 " Indentation to use
 set autoindent		" copies the indentation of the current line to the next lilne.
@@ -30,11 +38,10 @@ set smartindent		" auto indents after {, } etc.
 " enable syntax hilighting
 syntax enable
 
-
 " Enables 256 color and set default colorschemes
 set t_Co=256
-colorscheme industry
 set background=dark
+colorscheme pablo "gruvbox
 
 " Only for Solarized colorscheme
 
@@ -61,17 +68,28 @@ set laststatus=2	" 2 means always, see help
 set showcmd
 
 " set font
-set guifont=MonacoBSemi\ 11
+" If neovim then we do a little different.
+if !has('nvim')
+	set guifont=MonacoBSemi\ 9
+endif
 
 " hide menu and toolbar in gvim
-set guioptions -=T " hides toolbar
-set guioptions -=m " hides menubar
+" set guioptions -=T " hides toolbar
+" set guioptions -=m " hides menubar
 
 " snippets
-nnoremap ,csd :-1read $HOME/.vim/.cstd.c<CR>2ji
+nnoremap ,cstd :-1read $HOME/.vim/.cstd.c<CR>2ji
 nnoremap ,sock :-1read $HOME/.vim/.sock.h<CR>8j
 nnoremap ,p :-1read /home/coder/.vim/.printf.c<CR>f(a
 nnoremap ,cl :-1read /home/coder/.vim/componentListener.java<CR>4jA
+
+" build
+nnoremap <f5> :!make<cr>
+autocmd filetype asm nnoremap <f5> :!sh ../build.sh<cr>
+
+" Force filetype on .inc files
+autocmd filetype pov set filetype=asm
+" autocmd filetype .inc set filetype=asm
 
 " Window handling shortcuts
 nnoremap <C-_> <C-W>_
@@ -83,6 +101,7 @@ nnoremap <C-h> <C-W>h
 " Open horizontal and vertical windows
 nnoremap wh :new<cr>
 nnoremap wv :vne<cr> 
+nnoremap wc :close<cr>
 
 nnoremap tn	:tabnew<cr> 
 nnoremap tc	:tabclose<cr>
@@ -91,6 +110,8 @@ nnoremap th	:tabprevious<cr>
 nnoremap t1 :tabfirst<cr>
 nnoremap tt :tablast<cr>
 
+" source ~/.vim/ftdetect/markdown.vim
+" source ~/.vim/indent/markdown.vim
 " omnifunc
 " javacomplete url: https://www.vim.org/scripts/script.php?script_id=1785
 " ccomplete is not installed yet
