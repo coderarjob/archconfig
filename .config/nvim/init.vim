@@ -11,5 +11,6 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 " Read the settings from the original VIM config
 source ~/.vimrc
+set clipboard+=unnamedplus
 
 

@@ -5,5 +5,5 @@ source ~/.vimrc
 " the ! character if not used nvim gives an error message.
 " GuiFont! Monaco:h10.6
 " GuiFont Inconsolata:h12
-GuiFont Consolas:h12
+GuiFont Consolas:h11
 
